@@ -3,12 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AComponent } from './Components/a/a.component';
+import { HomeComponent } from './Components/main/home.component';
+import { VesselCardComponent } from './Components/vessel-card/vessel-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AComponent
+    HomeComponent,
+    VesselCardComponent
   ],
   imports: [
     BrowserModule,
