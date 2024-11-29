@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 export class HomeComponent {
   constructor(private router: Router) {}
   navigateToSecondPage(){
+    console.log("coming here")
     this.router.navigate(['/secondPage']); 
   }
 
