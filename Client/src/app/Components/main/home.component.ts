@@ -26,11 +26,4 @@ export class HomeComponent {
     ];
   }
 
-  // Method to send message in the chatbot
-  sendMessage(userMessage: string) {
-    if (userMessage) {
-      this.chatMessages.push(`User: ${userMessage}`);
-      this.chatMessages.push(`Bot: I received your message about "${userMessage}".`);
-    }
-  }
 }
