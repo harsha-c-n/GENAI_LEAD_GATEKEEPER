@@ -1,34 +1,54 @@
-* {
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
-  
   body {
-    background-color: #121212; 
-    color: #fff; 
-    font-family: 'Arial', sans-serif;
+    background-color: #121212; /* Dark background for overall professional look */
+    color: #fff; /* Text color */
   }
-  
-  .slider {
-    text-align: center;
-    margin-top: 187px;
-    position: relative;
+  .title {
+    text-align: left;
+    margin-top: 50px;
+    position: absolute; 
     z-index: 2;
+    margin-left: 6em;
   }
-  
-  .slider h1 {
-    font-size: 6rem;
-    font-weight: bold;
+  .title h2 {
+    font-family: "Raleway", serif;
+    font-optical-sizing: auto;
+    font-size: 1.7em;
+    font-weight: 400;
+    font-style: normal;
     color: white;
-    text-transform: uppercase;
-    letter-spacing: 5px;
-    background: linear-gradient(90deg, #ffffff, #ff007b, #00d4ff);
+    /* text-transform: uppercase; */
+    letter-spacing: 4px;
+    background:  white;
     -webkit-background-clip: text;
     color: transparent;
     animation: gradientShift 5s infinite;
   }
-  
+  .slider {
+    text-align: left;
+    margin-top: 187px;
+    position: absolute; 
+    z-index: 2;
+    margin-left: 6em;
+  }
+  .slider h1 {
+    font-family: "Raleway", serif;
+    font-optical-sizing: auto;
+    font-size: 5em;
+    font-weight: 600;
+    font-style: normal;
+    color: white;
+    /* text-transform: uppercase; */
+    letter-spacing: 5px;
+    background:  linear-gradient(to bottom right, #fcd34d, #ef4444);
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: gradientShift 5s infinite;
+  }
   @keyframes gradientShift {
     0% {
       background-position: 0%;
@@ -37,9 +57,8 @@
       background-position: 100%;
     }
   }
-  
   .background-animation {
-    background: linear-gradient(145deg, rgba(15, 15, 15, 0.8), rgba(26, 26, 26, 0.8)), url('boat-cuts-through-serene-black-waters-trailing-froth.jpg');
+    background: linear-gradient(45deg, rgba(0, 0, 0, 0.8), rgba(26, 26, 26, 0.8)), url('dark-lake-ocean-pattern-f737e2247f96628185c840e9a5aa1c3b.jpg');
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -50,7 +69,6 @@
     z-index: 1;
     overflow: hidden;
   }
-  
   .background-animation span {
     position: absolute;
     width: 20px;
@@ -59,17 +77,14 @@
     border-radius: 50%;
     animation: moveParticles 10s linear infinite;
   }
-  
   .background-animation span:nth-child(odd) {
     background: rgba(255, 0, 122, 0.3); /* Subtle pinkish glow */
     animation-duration: 12s;
   }
-  
   .background-animation span:nth-child(even) {
     background: rgba(0, 212, 255, 0.3); /* Subtle blue glow */
     animation-duration: 8s;
   }
-  
   @keyframes moveParticles {
     0% {
       transform: translateY(0) translateX(0) scale(1);
@@ -84,54 +99,33 @@
       opacity: 0;
     }
   }
-  
-  button {
-    position: relative;
-    margin-top: 30px;
-    padding: 15px 40px;
-    font-size: 1.2rem;
-    color: white;
-    background: linear-gradient(90deg, #00d4ff, #90366a);
-    border: none;
-    border-radius: 0.5em;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    border-top: 3px solid orange;
-    transition: all 0.3s ease-in-out;
-    box-shadow: 0 0 15px rgba(255, 0, 122, 0.6);
-    animation: wiggle 2s linear infinite;
-    transform-origin: 50% 5em;
-    z-index: 3;
+  .btn {
+    background-color: #cf245f;
+    background-image: linear-gradient(to bottom right, #ef4444, #ec4899);
+    border: 0;
+    border-radius: .25rem;
+    margin-top: 3em;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    font-family: ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    font-size: 1.125rem; /* 18px */
+    font-weight: 600;
+    line-height: 1.75rem; /* 28px */
+    padding: 1rem 1.25rem;
+    text-align: center;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
   }
-  
-  button:hover {
-    background: linear-gradient(90deg, #ff007b, #00d4ff);
-    box-shadow: 0 0 20px rgba(0, 212, 255, 0.8);
-    transform: scale(1.1);
+  .btn:hover {
+    background-color: #cf245f;
+    background-image: linear-gradient(to bottom right,  #ec4899,#ef4444);
   }
-  
-  @keyframes wiggle {
-    0%, 7% {
-      transform: rotateZ(0);
-    }
-    15% {
-      transform: rotateZ(-15deg);
-    }
-    20% {
-      transform: rotateZ(10deg);
-    }
-    25% {
-      transform: rotateZ(-10deg);
-    }
-    30% {
-      transform: rotateZ(6deg);
-    }
-    35% {
-      transform: rotateZ(-4deg);
-    }
-    40%, 100% {
-      transform: rotateZ(0);
+  @media (min-width: 1024px) {
+    .btn {
+      font-size: 1.5rem; /* 24px */
+      padding: 1rem 1.5rem;
+      line-height: 2rem; /* 32px */
     }
   }
-  
-  
