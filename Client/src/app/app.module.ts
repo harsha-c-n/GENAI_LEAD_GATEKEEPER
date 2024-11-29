@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './Components/main/home.component';
 import { VesselCardComponent } from './Components/vessel-card/vessel-card.component';
 import {ChatbotComponent} from './Components/chatbot/chatbot.component';
-import { SecondPageComponent } from './second-page/second-page.component'
+import { SecondPageComponent } from './Components/second-page/second-page.component'
 import { RouterModule, Routes } from '@angular/router';
 
 @NgModule({
