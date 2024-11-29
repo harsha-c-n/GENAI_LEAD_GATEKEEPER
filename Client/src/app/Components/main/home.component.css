@@ -1,125 +1,137 @@
-body {
-    font-family: Arial, sans-serif;
+* {
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
-}
-
-.container {
-    max-width: 900px;
-    margin: 20px auto;
-    padding: 20px;
-    background: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.section {
-    margin-bottom: 20px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-}
-
-h2 {
-    margin-top: 0;
-    color: #333;
-}
-
-button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #0056b3;
-}
-
-#cards-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.card {
-    border: 1px solid #ddd;
-    padding: 10px;
-    border-radius: 8px;
-    background-color: #ffffff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    flex: 1 1 calc(30% - 10px);
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color: #121212; /* Dark background for overall professional look */
+    color: #fff; /* Text color */
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .slider {
     text-align: center;
-}
-#chatbox {
-    width: 400px;
-    height: 500px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
+    margin-top: 187px;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .slider h1 {
+    font-size: 6rem;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    background: linear-gradient(90deg, #ffffff, #ff007b, #00d4ff);
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: gradientShift 5s infinite;
+  }
+  
+  @keyframes gradientShift {
+    0% {
+      background-position: 0%;
+    }
+    100% {
+      background-position: 100%;
+    }
+  }
+  
+  .background-animation {
+    background: linear-gradient(145deg, rgba(15, 15, 15, 0.8), rgba(26, 26, 26, 0.8)), url('boat-cuts-through-serene-black-waters-trailing-froth.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
     overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    background-color: #f9f9f9;
-}
-
-#messages {
-    flex: 1;
-    padding: 10px;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-}
-
-.message {
-    max-width: 75%;
-    margin-bottom: 10px;
-    padding: 10px;
-    border-radius: 12px;
-    animation: fadeIn 0.5s ease-in-out;
-}
-
-.user-message {
-    align-self: flex-end;
-    background-color: #007bff;
+  }
+  
+  .background-animation span {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    animation: moveParticles 10s linear infinite;
+  }
+  
+  .background-animation span:nth-child(odd) {
+    background: rgba(255, 0, 122, 0.3); /* Subtle pinkish glow */
+    animation-duration: 12s;
+  }
+  
+  .background-animation span:nth-child(even) {
+    background: rgba(0, 212, 255, 0.3); /* Subtle blue glow */
+    animation-duration: 8s;
+  }
+  
+  @keyframes moveParticles {
+    0% {
+      transform: translateY(0) translateX(0) scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: translateY(-50vh) translateX(30vw) scale(1.5);
+      opacity: 0.5;
+    }
+    100% {
+      transform: translateY(-100vh) translateX(-30vw) scale(0.5);
+      opacity: 0;
+    }
+  }
+  
+  button {
+    position: relative;
+    margin-top: 30px;
+    padding: 15px 40px;
+    font-size: 1.2rem;
     color: white;
-}
-
-.bot-message {
-    align-self: flex-start;
-    background-color: #e0e0e0;
-    color: black;
-}
-
-.input-container {
-    display: flex;
-    border-top: 1px solid #ccc;
-    padding: 10px;
-    background-color: #ffffff;
-}
-
-#chat-input {
-    flex: 1;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    outline: none;
-}
-
-#sendBtn {
-    margin-left: 10px;
-    padding: 8px 16px;
-    background-color: #007bff;
-    color: white;
+    background: linear-gradient(90deg, #00d4ff, #90366a);
     border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
+    border-radius: 0.5em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-top: 3px solid orange;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 0 15px rgba(255, 0, 122, 0.6);
+    animation: wiggle 2s linear infinite;
+    transform-origin: 50% 5em;
+    z-index: 3;
+  }
+  
+  button:hover {
+    background: linear-gradient(90deg, #ff007b, #00d4ff);
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.8);
+    transform: scale(1.1);
+  }
+  
+  @keyframes wiggle {
+    0%, 7% {
+      transform: rotateZ(0);
+    }
+    15% {
+      transform: rotateZ(-15deg);
+    }
+    20% {
+      transform: rotateZ(10deg);
+    }
+    25% {
+      transform: rotateZ(-10deg);
+    }
+    30% {
+      transform: rotateZ(6deg);
+    }
+    35% {
+      transform: rotateZ(-4deg);
+    }
+    40%, 100% {
+      transform: rotateZ(0);
+    }
+  }
+  
+  
