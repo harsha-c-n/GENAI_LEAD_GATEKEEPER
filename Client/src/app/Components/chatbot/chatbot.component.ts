@@ -21,7 +21,8 @@ import { ChatService, ChatMessage } from './chatbot.service';
   `,
   styles: [`
     .chat-container { 
-      width: 400px; 
+      width: 205px; 
+      margin: 0 auto;
       border: 1px solid #ccc; 
     }
     .user { text-align: right; color: blue; }

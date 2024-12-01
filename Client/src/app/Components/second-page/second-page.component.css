@@ -1,125 +1,118 @@
- body {
-    font-family: Arial, sans-serif;
+/* General Reset */
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
-}
-
-.container {
-    max-width: 900px;
-    margin: 20px auto;
+  }
+  
+  body {
+    font-family: 'Poppins', Arial, sans-serif;
+    line-height: 1.6;
+    background: linear-gradient(to bottom, #f7f8fc, #dde4ee);
+    color: #333;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Container Styling */
+  .container {
+    width: 100%;
+    height: 100vh;
     padding: 20px;
     background: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.section {
-    margin-bottom: 20px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-}
-
-h2 {
-    margin-top: 0;
-    color: #333;
-}
-
-button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #0056b3;
-}
-
-#cards-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.card {
-    border: 1px solid #ddd;
-    padding: 10px;
-    border-radius: 8px;
-    background-color: #ffffff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    flex: 1 1 calc(30% - 10px);
-    text-align: center;
-}
-#chatbox {
-    width: 400px;
-    height: 500px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    background-color: #f9f9f9;
-}
-
-#messages {
-    flex: 1;
-    padding: 10px;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-}
-
-.message {
-    max-width: 75%;
-    margin-bottom: 10px;
-    padding: 10px;
     border-radius: 12px;
-    animation: fadeIn 0.5s ease-in-out;
-}
-
-.user-message {
-    align-self: flex-end;
-    background-color: #007bff;
-    color: white;
-}
-
-.bot-message {
-    align-self: flex-start;
-    background-color: #e0e0e0;
-    color: black;
-}
-
-.input-container {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     display: flex;
-    border-top: 1px solid #ccc;
-    padding: 10px;
-    background-color: #ffffff;
-}
-
-#chat-input {
-    flex: 1;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    outline: none;
-}
-
-#sendBtn {
-    margin-left: 10px;
-    padding: 8px 16px;
+    flex-direction: column;
+  }
+  
+  /* Section Styling */
+  .section {
+    padding: 20px;
+    background: #f9fafc;
+  }
+  
+  /* Header Section */
+  .header-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10%;
+  }
+  
+  /* Content Section */
+  .content-section {
+    flex: 1; /* Allow this section to grow */
+    overflow: auto;
+  }
+  
+  /* Footer Section */
+  .footer-section {
+    height: 20%;
+    border-top: 1px solid #e5e9f2;
+  }
+  
+  /* Buttons */
+  button {
     background-color: #007bff;
     color: white;
     border: none;
-    border-radius: 4px;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 14px;
     cursor: pointer;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-} 
+    transition: all 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* ngx-datatable Styling */
+  ngx-datatable {
+    width: 100%;
+    max-height: 70%; /* Adjust table height */
+    border: 1px solid #e5e9f2;
+    border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+  }
+  
+  /* Table Header */
+  ngx-datatable .datatable-header {
+    background-color: #0047ab;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    border-bottom: 2px solid #003580;
+  }
+  
+  /* Table Rows */
+  ngx-datatable .datatable-body-row {
+    background-color: #f9f9f9;
+    color: #333;
+    border-bottom: 1px solid #e5e9f2;
+  }
+  
+  /* Alternate Row Styling */
+  ngx-datatable .datatable-body-row:nth-child(even) {
+    background-color: #e6f7ff;
+  }
+  
+  /* Chatbox */
+  .chatbot-style {
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #e5e9f2;
+    border-radius: 6px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Footer Section Title */
+  .footer-section h2 {
+    text-align: center;
+  }
+  

@@ -1,38 +1,15 @@
 <div class="table-container">
-    <table class="company-table">
-      <thead>
-        <tr>
-          <th></th>
-          <th>Name</th>
-          <th>Actions</th>
-          <th>Links</th>
-          <th>Number of Vessels</th>
-          <th>Market Cap</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let company of companyData">
-          <!-- Checkbox -->
-          <td>
-            <input type="checkbox" />
-          </td>
-          <!-- Name -->
-          <td>{{ company.name }}</td>
-          <!-- Actions -->
-          <td>
-            <button class="save-btn">+ Save</button>
-          </td>
-          <!-- Links -->
-          <td>
-            <a [href]="company.links.linkedIn" target="_blank" class="link-icon">in</a>
-            <a [href]="company.links.facebook" target="_blank" class="link-icon">f</a>
-          </td>
-          <!-- Employees -->
-          <td>{{ company.employees }}</td>
-          <!-- Industry -->
-          <td>{{ company.industry }}</td>
-        </tr>
-      </tbody>
-    </table>
+  <div id="cards-container">
+    <ngx-datatable
+      class="bootstrap ngx-datatable"
+      [rows]="rows"
+      [columns]="columns"
+      [headerHeight]="50"
+      [footerHeight]="50"
+      [rowHeight]="'auto'"
+
+    >
+    </ngx-datatable>
+  </div>
   </div>
   

@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./vessel-card.component.css']
 })
 export class VesselCardComponent implements OnInit {
-  public companyData = [
+  public rows = [
     {
       name: "Bunge",
       employees: "23,000",
@@ -35,7 +35,13 @@ export class VesselCardComponent implements OnInit {
       }
     }
   ];
-
+  
+  public columns = [
+    { prop: 'name', name: 'Company Name' },
+    { prop: 'industry', name: 'Industry' },
+    { prop: 'employees', name: 'Employees' },
+ 
+  ];
   constructor() {}
 
   ngOnInit(): void {
