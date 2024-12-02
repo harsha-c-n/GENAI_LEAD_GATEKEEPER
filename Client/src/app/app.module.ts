@@ -9,7 +9,7 @@ import { VesselCardComponent } from './Components/vessel-card/vessel-card.compon
 import {ChatbotComponent} from './Components/chatbot/chatbot.component';
 import { SecondPageComponent } from './Components/second-page/second-page.component'
 import { RouterModule, Routes } from '@angular/router';
-
+import { CUSTOM_ELEMENTS_SCHEMA,NO_ERRORS_SCHEMA } from '@angular/core';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,6 +28,7 @@ import { RouterModule, Routes } from '@angular/router';
     provideHttpClient(withInterceptorsFromDi())
   ],
   bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA,NO_ERRORS_SCHEMA],
   
 })
 export class AppModule { }

@@ -1,16 +1,20 @@
 <div class="container">
-        <div class="section" id="generate-clients">
-            <h2>Generate Prospective Clients</h2>
-            <button id="generateBtn">Generate</button>
-        </div>
-        <div class="section" id="vessel-cards">
-            <h2>Vessel Cards</h2>
-            <div id="cards-container">
-                <app-vessel-card></app-vessel-card>
-            </div>
-        </div>
-        <div class="section" id="chatbot">
-            <h2>Chatbot</h2>
-            <app-chatbot></app-chatbot>
-        </div>
-    </div> 
+    <!-- Header Section -->
+    <!-- <div class="section header-section" id="generate-clients">
+      <h2>Generate Prospective Clients</h2>
+      <button id="generateBtn">Generate</button>
+    </div> -->
+    <!-- Content Section (Table and Data) -->
+    <div class="section content-section" id="vessel-cards">
+      <h2>Prospective Clients</h2>
+      <app-vessel-card></app-vessel-card>
+    </div>
+    <!-- Footer Section (Chatbot) -->
+    <div class="section footer-section" id="chatbot">
+      <h2>Chatbot</h2>
+      <div class="chatbot-style">
+        <app-chatbot></app-chatbot>
+      </div>
+      <button id="Chatbox"><i class="fa-brands fa-rocketchat"></i></button>
+    </div>
+  </div>

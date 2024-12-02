@@ -1,12 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-vessel-card',
   templateUrl: './vessel-card.component.html',
-  styleUrls: ['./vessel-card.component.css']
+  styleUrls: ['./vessel-card.component.css'],
+  encapsulation:ViewEncapsulation.None,
 })
 export class VesselCardComponent implements OnInit {
-  public companyData = [
+  public rows = [
     {
       name: "Bunge",
       employees: "23,000",
@@ -35,9 +36,12 @@ export class VesselCardComponent implements OnInit {
       }
     }
   ];
-
+  public columns = [
+    { prop: 'name', name: 'Company Name' },
+    { prop: 'industry', name: 'Industry' },
+    { prop: 'employees', name: 'Employees' },
+  ];
   constructor() {}
-
   ngOnInit(): void {
     // Any initialization logic can go here if needed
   }

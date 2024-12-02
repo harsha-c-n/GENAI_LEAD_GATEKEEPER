@@ -1,125 +1,161 @@
- body {
-    font-family: Arial, sans-serif;
+*{
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
-}
-
-.container {
-    max-width: 900px;
-    margin: 20px auto;
+  }
+  body {
+    font-family: "Raleway", serif;
+    line-height: 1.6;
+    color: #ffffff;
+    background: linear-gradient(to bottom, #393B44, #393B44);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  h2{
+    margin-bottom: 3em;
+  }
+  /* Container Styling */
+  .container {
+    color: #ffffff;
+    width: 100%;
+    height: 100vh;
     padding: 20px;
-    background: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.section {
-    margin-bottom: 20px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-}
-
-h2 {
-    margin-top: 0;
-    color: #333;
-}
-
-button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #0056b3;
-}
-
-#cards-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.card {
-    border: 1px solid #ddd;
-    padding: 10px;
-    border-radius: 8px;
-    background-color: #ffffff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    flex: 1 1 calc(30% - 10px);
-    text-align: center;
-}
-#chatbox {
-    width: 400px;
-    height: 500px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    overflow: hidden;
+    background: #151515;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
-    background-color: #f9f9f9;
-}
-
-#messages {
-    flex: 1;
-    padding: 10px;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-}
-
-.message {
-    max-width: 75%;
-    margin-bottom: 10px;
-    padding: 10px;
+  }
+  /* Section Styling */
+  .section {
+    padding: 20px;
+    background: #343434;
+    margin: 1.5em;
     border-radius: 12px;
-    animation: fadeIn 0.5s ease-in-out;
-}
-
-.user-message {
-    align-self: flex-end;
-    background-color: #007bff;
-    color: white;
-}
-
-.bot-message {
-    align-self: flex-start;
-    background-color: #e0e0e0;
-    color: black;
-}
-
-.input-container {
+  }
+  /* Header Section */
+  .header-section {
     display: flex;
-    border-top: 1px solid #ccc;
-    padding: 10px;
-    background-color: #ffffff;
-}
-
-#chat-input {
-    flex: 1;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    outline: none;
-}
-
-#sendBtn {
-    margin-left: 10px;
-    padding: 8px 16px;
-    background-color: #007bff;
+    justify-content: space-between;
+    align-items: center;
+    height: 10%;
+  }
+  /* Content Section */
+  .content-section {
+    flex: 1; /* Allow this section to grow */
+    overflow: auto;
+  }
+  /* Footer Section */
+  .footer-section {
+    height: 20%;
+    flex: .2;
+    border-top: 1px solid #e5e9f2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10%;
+  }
+  /* Buttons */
+  button {
+    /* background: linear-gradient(to right, rgb(163, 39, 101), rgb(105, 30, 67)); */
+    background: linear-gradient(to bottom right, #ef4444, #ec4899) ;
     color: white;
     border: none;
-    border-radius: 4px;
+    padding: 15px;
+    border-radius: 50%;
+    font-size: 20px;
+    font-weight: 600;
     cursor: pointer;
+  }
+  button:hover {
+    /* background: linear-gradient(to right, rgb(105, 30, 67),rgb(163, 39, 101)); */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  }
+  /* ngx-datatable Styling */
+  /* General ngx-datatable Styles */
+ngx-datatable {
+  border-spacing: 1;
+  border-collapse: collapse;
+  background: white; 
+  border-radius: 6px;
+  overflow: hidden;
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-} 
+ngx-datatable * {
+  position: relative;
+}
+ngx-datatable .datatable-header {
+  background: #FFED86;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: left;
+}
+ngx-datatable .datatable-header-cell {
+  padding: 8px;
+  text-align: left;
+}
+ngx-datatable .datatable-body-row {
+  height: 48px;
+  border-bottom: 1px solid #E3F1D5;
+}
+ngx-datatable .datatable-body-row:last-child {
+  border: 0;
+}
+ngx-datatable .datatable-body-cell {
+  padding-left: 8px;
+  color: #4a4a4a;
+  text-align: left;
+}
+/* Text Alignment Helpers */
+ngx-datatable .datatable-body-cell.l {
+  text-align: right;
+}
+ngx-datatable .datatable-body-cell.c {
+  text-align: center;
+}
+ngx-datatable .datatable-body-cell.r {
+  text-align: right;
+}
+/* Responsive Design for ngx-datatable */
+@media screen and (max-width: 35.5em) {
+  ngx-datatable {
+    display: block;
+  }
+  ngx-datatable .datatable-header,
+  ngx-datatable .datatable-header-row,
+  ngx-datatable .datatable-body-row {
+    display: block;
+  }
+  ngx-datatable .datatable-header-cell,
+  ngx-datatable .datatable-body-cell {
+    display: block;
+    padding-left: 45%;
+    margin-bottom: 12px;
+    position: relative;
+  }
+  ngx-datatable .datatable-body-cell:before {
+    position: absolute;
+    font-weight: 700;
+    width: 40%;
+    left: 10px;
+    top: 0;
+    content: attr(data-label);
+  }
+}
+  /* Chatbox */
+  /* .chatbot-style {
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #e5e9f2;
+    border-radius: 6px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  } */
+  /* Footer Section Title */
+  .footer-section h2 {
+    text-align: left;
+  }
