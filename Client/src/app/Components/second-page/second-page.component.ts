@@ -18,5 +18,13 @@ export class SecondPageComponent {
   generateProspectiveClients() {
 
   }
+  toggleChatbotModal() {
+    const modal = document.getElementById('chatbot-modal');
+    
+    if (modal) {
+      modal.style.display = modal.style.display === 'block' ? 'none' : 'block'; // Toggle modal display
+    }
+  }
+
 
 }
