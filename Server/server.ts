@@ -6,7 +6,7 @@ import { errorHandler } from './middleware/error-handler';
 import { rateLimiterMiddleware } from './middleware/rate-limiter.middleware';
 import leadGenerationRoutes from './routes/lead-generation.routes';
 import scrapingRoutes from './routes/scraping.routes';
-
+import ChatRoute from './routes/chat.routes';
 // Load environment variables
 dotenv.config();
 
@@ -59,6 +59,8 @@ class Server {
     // API routes
     this.app.use('/api/leads', leadGenerationRoutes);
     this.app.use('/api/scraping', scrapingRoutes);
+    this.app.use('/api/chat', ChatRoute);
+
   }
 
   private initializeErrorHandling() {
