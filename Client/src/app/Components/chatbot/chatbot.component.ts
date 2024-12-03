@@ -3,31 +3,8 @@ import { ChatService, ChatMessage } from './chatbot.service';
 
 @Component({
   selector: 'app-chatbot',
-  template: `
-    <div class="chat-container">
-      <div class="messages">
-        <div *ngFor="let msg of messages" 
-             [ngClass]="msg.role">
-          {{ msg.content }}
-        </div>
-      </div>
-      <input 
-        [(ngModel)]="userInput"
-        (keyup.enter)="sendMessage()"
-        placeholder="Type your message"
-      >
-      <button (click)="sendMessage()">Send</button>
-    </div>
-  `,
-  styles: [`
-    .chat-container { 
-      width: 205px; 
-      margin: 0 auto;
-      border: 1px solid #ccc; 
-    }
-    .user { text-align: right; color: blue; }
-    .assistant { text-align: left; color: green; }
-  `]
+  templateUrl: './chatbot.component.html',
+  styleUrls: ['./chatbot.component.css']
 })
 export class ChatbotComponent {
   messages: ChatMessage[] = [];
