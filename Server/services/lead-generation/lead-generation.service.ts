@@ -1,34 +1,50 @@
-import OpenAI from 'openai';
+import LLMService from '../llm.service';
+import LeadGenerationWorkflow from '../workflow/lead-generation-workflow.service';
 
 class LeadGenerationService {
-  private openai: OpenAI;
+  private llmService: LLMService;
 
   constructor() {
-    this.openai = new OpenAI({
-      apiKey: process.env.OPENAI_API_KEY
-    });
+    this.llmService = new LLMService();
   }
 
-  async generateLeadInsights(relevantDocuments: any[], query: string) {
-    const context = relevantDocuments.map(doc => doc.content).join('\n\n');
+  async generateLeadInsights(documents: any[], query: string): Promise<any> {
+    // Prepare context for LLM
+    const context = documents.map(doc => doc.content).join('\n\n');
 
+    // Create a prompt that includes context and query
     const prompt = `
       Context: ${context}
+      
       Query: ${query}
-
-      Using the maritime industry context, generate a detailed lead generation insight:
-      1. Identify potential business opportunities
-      2. Highlight key companies or sectors
-      3. Provide strategic recommendations
-      4. Suggest potential sales approaches
+      
+      Based on the given context and query, generate detailed lead insights. 
+      Provide:
+      1. Potential business opportunities
+      2. Key companies or contacts
+      3. Relevant maritime market insights
     `;
 
-    const response = await this.openai.chat.completions.create({
-      model: "gpt-4-turbo",
-      messages: [{ role: "user", content: prompt }]
-    });
+    // Generate insights using LLM
+    const insights = await this.llmService.generateText(
+      prompt, 
+      'You are a maritime market intelligence analyst.',
+      'openai/gpt-4o'
+    );
 
-    return response.choices[0].message.content;
+    return {
+      rawInsights: insights,
+      processedInsights: this.processInsights(insights)
+    };
+  }
+
+  private processInsights(insights: string): any {
+    // Implement your insight processing logic here
+    // This could involve parsing the text, extracting key information, etc.
+    return {
+      // Example processing
+      opportunities: insights.split('\n').filter(line => line.startsWith('- Opportunity:'))
+    };
   }
 }
 

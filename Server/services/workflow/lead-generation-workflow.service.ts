@@ -3,6 +3,14 @@ import LeadGenerationService from "../lead-generation/lead-generation.service";
 import AstraVectorStore from "../vector-store/astra-vector.service";
 import WebScraperService from "../web-scrapper/web-scrapper.service";
 
+// Define an interface for the embedding result
+interface EmbeddingResult {
+  embeddings: {
+    provider: string;
+    embedding: number[];
+  }[];
+}
+
 class LeadGenerationWorkflow {
   private webScraper: WebScraperService;
   private embeddingService: EmbeddingService;
@@ -16,33 +24,40 @@ class LeadGenerationWorkflow {
     this.leadGenerator = new LeadGenerationService();
   }
 
-  async generateLeads(query: string) {
+  async generateLeads(query: string, sources: any) {
     // Scrape websites
-    const scrapedData = await this.webScraper.scrapeWebsites();
+    const scrapedData = await this.webScraper.scrapeWebsites(sources);
 
     // Generate embeddings
     const texts = scrapedData.map(data => data.content);
-    const embeddings = await this.embeddingService.generateEmbeddings(texts);
+    const embeddingResult = await this.embeddingService.generateEmbeddings(texts);
 
     // Extract vector values 
-    const vectorData = scrapedData.map((data, index) => ({
-      ...data,
-      embedding: embeddings.openai[index].embedding // Access the actual vector
-    }));
+    const vectorData = scrapedData.map((data, index) => {
+      // Find the OpenAI embedding or use the first available
+      const embedding = embeddingResult.embeddings.find(e => e.provider === 'openai')?.embedding || 
+                        embeddingResult.embeddings[0].embedding;
+      
+      return {
+        ...data,
+        embedding: embedding
+      };
+    });
 
     // Upsert vectors to Astra DB
     await this.vectorStore.upsertVectors('maritime_leads', vectorData);
 
     // Generate query embedding
-    const queryEmbedding = await this.embeddingService.generateEmbeddings([query]);
+    const queryEmbeddingResult = await this.embeddingService.generateEmbeddings([query]);
 
     // Extract query vector
-    const queryVector = queryEmbedding.openai[0].embedding;
+    const queryVector = queryEmbeddingResult.embeddings.find(e => e.provider === 'openai')?.embedding || 
+                        queryEmbeddingResult.embeddings[0].embedding;
 
     // Retrieve similar documents
     const relevantDocuments = await this.vectorStore.similaritySearch(
       'maritime_leads', 
-      queryVector // Now passing the actual vector array
+      queryVector
     );
 
     // Generate lead insights
