@@ -8,9 +8,9 @@ import { HomeComponent } from './Components/main/home.component';
 import {ChatbotComponent} from './Components/chatbot/chatbot.component';
 import { SecondPageComponent } from './Components/second-page/second-page.component'
 import { RouterModule, Routes } from '@angular/router';
-import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { CUSTOM_ELEMENTS_SCHEMA,NO_ERRORS_SCHEMA } from '@angular/core';
 import { VesselCardComponent } from './Components/vessel-card/vessel-card.component';
-
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +30,7 @@ import { VesselCardComponent } from './Components/vessel-card/vessel-card.compon
     provideHttpClient(withInterceptorsFromDi())
   ],
   bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA,NO_ERRORS_SCHEMA],
   
 })
 export class AppModule { }

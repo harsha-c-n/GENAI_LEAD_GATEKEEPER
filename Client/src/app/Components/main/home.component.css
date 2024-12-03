@@ -1,127 +1,114 @@
+body {
+  background-color: #121212; /* Dark background for overall professional look */
+  color: #fff; /* Text color */
+}
+.title {
+  text-align: left;
+  margin-top: 50px;
+  position: absolute;
+  z-index: 2;
+  margin-left: 6em;
+}
+.title h2 {
+  font-family: "Raleway", serif;
+  font-optical-sizing: auto;
+  font-size: 1.7em;
+  font-weight: 400;
+  font-style: normal;
+  color: white;
+  /* text-transform: uppercase; */
+  letter-spacing: 4px;
+  background:  white;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: gradientShift 5s infinite;
+}
+.slider {
+  text-align: left;
+  margin-top: 187px;
+  position: absolute;
+  z-index: 2;
+  margin-left: 6em;
+}
+.slider h1 {
+  font-family: "Raleway", serif;
+  font-optical-sizing: auto;
+  font-size: 5em;
+  font-weight: 600;
+  font-style: normal;
+  color: white;
+  /* text-transform: uppercase; */
+  letter-spacing: 5px;
+  background:  linear-gradient(to bottom right, #fcd34d, #ef4444);
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: gradientShift 5s infinite;
+}
+@keyframes gradientShift {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 100%;
+  }
+}
 
-  body {
-    background-color: #121212; /* Dark background for overall professional look */
-    color: #fff; /* Text color */
+@media (prefers-reduced-motion: reduce) {
+*{
+    animation: none !important;
+    transition-duration: 0.001s !important;
   }
-  .title {
-    text-align: left;
-    margin-top: 50px;
-    position: absolute; 
-    z-index: 2;
-    margin-left: 6em;
+}
+.background-animation  {
+  background: linear-gradient(100deg, #402, #006);
+  padding: 2em;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  background-image: url('dark-lake-ocean-pattern-f737e2247f96628185c840e9a5aa1c3b.jpg');
+  background-position: 50% 50%;
+  /* animation: background-move 10s linear infinite; */
+  background-size: 100vw auto, 100% 100%;
+  background-size: max(100vw, 30em) auto, 100% 100%;
+}
+@keyframes background-move {
+  0% {
+    background-position: 0 0, 0 0;
   }
-  .title h2 {
-    font-family: "Raleway", serif;
-    font-optical-sizing: auto;
-    font-size: 1.7em;
-    font-weight: 400;
-    font-style: normal;
-    color: white;
-    /* text-transform: uppercase; */
-    letter-spacing: 4px;
-    background:  white;
-    -webkit-background-clip: text;
-    color: transparent;
-    animation: gradientShift 5s infinite;
+  100% {
+    background-position: 100vw 0, 0 0;
+    background-position: max(100vw, 40em) 0, 0 0;
   }
-  .slider {
-    text-align: left;
-    margin-top: 187px;
-    position: absolute; 
-    z-index: 2;
-    margin-left: 6em;
-  }
-  .slider h1 {
-    font-family: "Raleway", serif;
-    font-optical-sizing: auto;
-    font-size: 5em;
-    font-weight: 600;
-    font-style: normal;
-    color: white;
-    /* text-transform: uppercase; */
-    letter-spacing: 5px;
-    background:  linear-gradient(to bottom right, #fcd34d, #ef4444);
-    -webkit-background-clip: text;
-    color: transparent;
-    animation: gradientShift 5s infinite;
-  }
-  @keyframes gradientShift {
-    0% {
-      background-position: 0%;
-    }
-    100% {
-      background-position: 100%;
-    }
-  }
-  .background-animation {
-    background: linear-gradient(45deg, rgba(0, 0, 0, 0.8), rgba(26, 26, 26, 0.8)), url('dark-lake-ocean-pattern-f737e2247f96628185c840e9a5aa1c3b.jpg');
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1;
-    overflow: hidden;
-  }
-  .background-animation span {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-    animation: moveParticles 10s linear infinite;
-  }
-  .background-animation span:nth-child(odd) {
-    background: rgba(255, 0, 122, 0.3); /* Subtle pinkish glow */
-    animation-duration: 12s;
-  }
-  .background-animation span:nth-child(even) {
-    background: rgba(0, 212, 255, 0.3); /* Subtle blue glow */
-    animation-duration: 8s;
-  }
-  @keyframes moveParticles {
-    0% {
-      transform: translateY(0) translateX(0) scale(1);
-      opacity: 1;
-    }
-    50% {
-      transform: translateY(-50vh) translateX(30vw) scale(1.5);
-      opacity: 0.5;
-    }
-    100% {
-      transform: translateY(-100vh) translateX(-30vw) scale(0.5);
-      opacity: 0;
-    }
-  }
+}
+.btn {
+  background-color: #cf245f;
+  background-image: linear-gradient(to bottom right, #ef4444, #ec4899);
+  border: 0;
+  border-radius: .25rem;
+  margin-top: 3em;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  font-family: ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-size: 1.125rem; /* 18px */
+  font-weight: 600;
+  line-height: 1.75rem; /* 28px */
+  padding: 1rem 1.25rem;
+  text-align: center;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+.btn:hover {
+  background-color: #cf245f;
+  background-image: linear-gradient(to bottom right,  #ec4899,#ef4444);
+}
+@media (min-width: 1024px) {
   .btn {
-    background-color: #cf245f;
-    background-image: linear-gradient(to bottom right, #ef4444, #ec4899);
-    border: 0;
-    border-radius: .25rem;
-    margin-top: 3em;
-    box-sizing: border-box;
-    color: #fff;
-    cursor: pointer;
-    font-family: ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
-    font-size: 1.125rem; /* 18px */
-    font-weight: 600;
-    line-height: 1.75rem; /* 28px */
-    padding: 1rem 1.25rem;
-    text-align: center;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
+    font-size: 1.5rem; /* 24px */
+    padding: 1rem 1.5rem;
+    line-height: 2rem; /* 32px */
   }
-  .btn:hover {
-    background-color: #cf245f;
-    background-image: linear-gradient(to bottom right,  #ec4899,#ef4444);
-  }
-  @media (min-width: 1024px) {
-    .btn {
-      font-size: 1.5rem; /* 24px */
-      padding: 1rem 1.5rem;
-      line-height: 2rem; /* 32px */
-    }
-  }
+}
