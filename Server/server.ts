@@ -6,6 +6,7 @@ import { errorHandler } from './middleware/error-handler';
 import { rateLimiterMiddleware } from './middleware/rate-limiter.middleware';
 import leadGenerationRoutes from './routes/lead-generation.routes';
 import scrapingRoutes from './routes/scraping.routes';
+import ChatRouter from './routes/chat.routes';
 
 // Load environment variables
 dotenv.config();

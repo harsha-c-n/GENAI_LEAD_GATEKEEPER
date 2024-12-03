@@ -11,13 +11,15 @@ import { RouterModule, Routes } from '@angular/router';
 import { CUSTOM_ELEMENTS_SCHEMA,NO_ERRORS_SCHEMA } from '@angular/core';
 import { VesselCardComponent } from './Components/vessel-card/vessel-card.component';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { LeadsComponent } from './Component/leads/leads.component';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     ChatbotComponent,
     SecondPageComponent,
-    VesselCardComponent
+    VesselCardComponent,
+    LeadsComponent
   ],
   imports: [
     BrowserModule,

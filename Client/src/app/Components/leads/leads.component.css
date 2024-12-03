@@ -1,0 +1,98 @@
+/* General Table Styles */
+ngx-datatable {
+    border-spacing: 0; /* Remove unnecessary spacing */
+    border-collapse: collapse;
+    border-radius: 6px;
+    overflow: hidden;
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background: #ffffff; /* Ensure table background is visible */
+}
+/* Header Styling */
+ngx-datatable .datatable-header {
+    /* background: linear-gradient(to right, rgb(163, 39, 101), rgb(76, 76, 251)); Gradient header background */
+    background:  linear-gradient(to right, #d9ab16, #ef4444) ;
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff; /* White text for better contrast */
+    text-align: left;
+    height: 60px; /* Consistent header height */
+}
+ngx-datatable .datatable-header-cell {
+    padding: 12px; /* Increased padding for better readability */
+    text-align: left;
+    font-size: 14px;
+    color: #ffffff; /* Black text for header */
+    border-bottom: 1px solid #e3f1d5; /* Subtle border at the bottom */
+}
+/* Body Row Styling */
+ngx-datatable .datatable-body-row {
+    height: 48px;
+    background: #ffffff; /* Default row background */
+    border-bottom: 1px solid #e3f1d5; /* Light separator for rows */
+}
+ngx-datatable .datatable-body-row:hover {  
+    background: #f9f9f9; /* Light gray hover effect */
+}
+ngx-datatable .datatable-body-row:nth-child(even) {
+    background: #f5f5f5; /* Alternate row color */
+}
+ngx-datatable .datatable-body-row:last-child {
+    border-bottom: none; /* Remove border from the last row */
+}
+/* Body Cell Styling */
+ngx-datatable .datatable-body-cell {
+    padding: 12px 8px; /* Increased padding for better spacing */
+    color: #4a4a4a; /* Dark gray text */
+    font-size: 14px;
+    text-align: left; /* Default alignment */
+    box-sizing: border-box; /* Ensure padding does not affect cell width */
+}
+/* Text Alignment Helpers */
+ngx-datatable .datatable-body-cell.l {
+    text-align: left;
+}
+ngx-datatable .datatable-body-cell.c {
+    text-align: center;
+}
+ngx-datatable .datatable-body-cell.r {
+    text-align: right;
+}
+/* Footer Styling */
+ngx-datatable .datatable-footer {
+    background: #f7f7f7; /* Light gray footer */
+    text-align: right;
+    color: #000;
+    padding: 10px;
+    font-size: 14px;
+    border-top: 1px solid #e3f1d5; /* Subtle border at the top */
+}
+/* Scrollbar Styles */
+ngx-datatable .datatable-scroll {
+    overflow-y: auto;
+    max-height: 400px; /* Adjust as needed for vertical scrolling */
+}
+/* Responsive Design */
+@media screen and (max-width: 600px) {
+    ngx-datatable .datatable-header,
+    ngx-datatable .datatable-header-cell,
+    ngx-datatable .datatable-body-cell {
+        display: block;
+        width: 100%; /* Ensure full width for smaller screens */
+        text-align: left;
+    }
+    ngx-datatable .datatable-body-cell {
+        padding-left: 50%; /* Space for labels in responsive design */
+        position: relative;
+    }
+    ngx-datatable .datatable-body-cell:before {
+        content: attr(data-label); /* Use `data-label` for accessibility */
+        position: absolute;
+        left: 10px;
+        font-weight: bold;
+        color: #000;
+    }
+}
