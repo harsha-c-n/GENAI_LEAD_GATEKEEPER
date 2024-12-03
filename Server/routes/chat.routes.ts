@@ -5,12 +5,12 @@ import path from 'path';
 
 dotenv.config({ path: path.join(__dirname, '../../.env') });
 
-const ChatRouter = express.Router();
+const router = express.Router();
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY
 });
 
-ChatRouter.post('/', async (req, res) => {
+router.post('/', async (req, res) => {
     try {
       const { messages } = req.body;
   
@@ -43,4 +43,4 @@ ChatRouter.post('/', async (req, res) => {
     }
   });
 
-export default ChatRouter;
+export default router;
