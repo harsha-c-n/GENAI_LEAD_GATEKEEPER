@@ -2,6 +2,32 @@ body {
   background-color: #121212; /* Dark background for overall professional look */
   color: #fff; /* Text color */
 }
+.top-right-links {
+  position: absolute;
+  top: 55px;
+  right: 90px;
+  display: flex;
+  gap: 20px;
+  z-index: 3;
+}
+
+.top-right-links a {
+  font-family: "Raleway", serif;
+  text-decoration: none;
+  font-size: 1.8em;
+  font-weight: 500;
+  color: white;
+  background: linear-gradient(to bottom right, #fcd34d, #ef4444);
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: gradientShift 5s infinite;
+  transition: color 0.3s ease;
+}
+
+.top-right-links a:hover {
+  color: #fcd34d;
+  text-decoration: underline;
+}
 .title {
   text-align: left;
   margin-top: 50px;

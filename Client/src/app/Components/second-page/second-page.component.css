@@ -119,7 +119,7 @@ button:hover {
 .close-btn:hover {
   background-color: darkred;
 }
-}
+
 
 /* Optional: Styling for app-chatbot inside modal */
 app-chatbot {
