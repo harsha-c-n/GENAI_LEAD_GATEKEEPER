@@ -25,6 +25,7 @@
     "helmet": "^8.0.0",
     "jsonwebtoken": "^9.0.2",
     "openai": "^4.73.1",
+    "puppeteer": "^23.10.0",
     "winston": "^3.17.0"
   },
   "devDependencies": {
