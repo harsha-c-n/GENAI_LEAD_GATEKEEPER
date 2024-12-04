@@ -11,23 +11,15 @@ class EmbeddingService {
     });
   }
 
-  async generateEmbeddings(texts: string[]) {
+  async generateEmbeddings(texts: string) {
     try {
-      const openaiResponse = await this.openai.embeddings.create({
+      const embeddings = await this.openai.embeddings.create({
         model: "text-embedding-3-small",
         input: texts,
         encoding_format:"float"
       });
 
-      return {
-        embeddings: [
-          {
-            provider: 'openai',
-            embedding: texts.map(() => Math.random()) // placeholder
-          },
-          // Potentially other providers
-        ]
-      };
+      return embeddings;
     } catch (error) {
       console.error('Embedding generation error:', error);
       throw error;

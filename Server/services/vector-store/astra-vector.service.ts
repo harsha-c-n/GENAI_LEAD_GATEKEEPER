@@ -2,30 +2,29 @@ import { DataAPIClient } from '@datastax/astra-db-ts';
 import dotenv from 'dotenv';
 import path from 'path';
 dotenv.config({ path: path.join(__dirname, '../../../.env') });
-
+// type SimilarityMetric = "dot_product" |"cosine"|"euclidean";
 class AstraVectorStore {
   private client: DataAPIClient;
   private endpoint: string;
 
   constructor() {
     this.client = new DataAPIClient(process.env.ASTRA_DB_TOKEN);
-    this.endpoint = process.env.ASTRA_DB_ENDPOINT || 'default_endpoint';
+    this.endpoint = process.env.ASTRA_DB_ENDPOINT || 'default_keyspace';
   }
 
-  async upsertVectors(collection: string, documents: any[]) {
-    const db = this.client.db(this.endpoint);
-    const vectorCollection = db.collection(collection);
-console.log("connection established..")
 
-    const upsertOperations = documents.map(doc => 
-      vectorCollection.insertOne({
-        ...doc,
-        $vector: doc.embedding
-      })
-    );
 
-    return Promise.all(upsertOperations);
+  async upsertVectors(chunk: string, vector: any[]) {
+    const db = this.client.db(this.endpoint!,{namespace:'default_keyspace'});
+    const vectorCollection = db.collection('gendb');
+
+    const res= await vectorCollection.insertOne({
+      $vector:vector,
+      text:chunk
+    })
   }
+
+  
 
   async similaritySearch(collection: string, queryVector: number[], k = 5) {
     const db = this.client.db(this.endpoint);
