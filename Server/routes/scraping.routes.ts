@@ -36,10 +36,9 @@ router.post('/scrape',
   authMiddleware,
   async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
-      const { sources } = req.body;
 
       // If sources are provided, use them; otherwise, use default sources
-      const scrapedData = await webScraperService.scrapeWebsites(sources);
+      const scrapedData = await webScraperService.scrapeWebsites();
 
       res.json({
         success: true,

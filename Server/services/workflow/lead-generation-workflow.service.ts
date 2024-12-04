@@ -46,55 +46,48 @@ Include company names, financial data, recent news (like partnerships or technol
     const finalQuery = query || this.defaultQuery;
 
     // Scrape websites
-    const scrapedData = await this.webScraper.scrapeWebsites();
+    const scrapedData:any = await this.webScraper.scrapeWebsites();
     
     // Generate embeddings
-    const texts = scrapedData.map(data => data.content);
+    for await(const chunk of scrapedData){
+      const embeddingResult = await this.embeddingService.generateEmbeddings(chunk);
+      const vector = embeddingResult.data[0].embedding;
+      await this.vectorStore.upsertVectors(chunk, vector);
+
+    }
+    const texts = scrapedData;
     console.log("AAAAAAAAAAAAAAAAAA")
     console.log(texts)
     console.log("AAAAAAAAAAAAAAAAAA")
-    
-    const embeddingResult = await this.embeddingService.generateEmbeddings(texts);
-    
-    // Extract vector values 
-    const vectorData = scrapedData.map((data, index) => {
-      // Find the OpenAI embedding or use the first available
-      const embedding = embeddingResult.embeddings.find(e => e.provider === 'openai')?.embedding ||
-                        embeddingResult.embeddings[0].embedding;
-      
-      return {
-        ...data,
-        embedding: embedding
-      };
-    });
+
     
     // Upsert vectors to Astra DB
-    await this.vectorStore.upsertVectors('maritime_leads', vectorData);
+   
     
     // Generate query embedding
-    const queryEmbeddingResult = await this.embeddingService.generateEmbeddings([finalQuery]);
+    // const queryEmbeddingResult = await this.embeddingService.generateEmbeddings([finalQuery]);
     
-    // Extract query vector
-    const queryVector = queryEmbeddingResult.embeddings.find(e => e.provider === 'openai')?.embedding ||
-                        queryEmbeddingResult.embeddings[0].embedding;
+    // // Extract query vector
+    // const queryVector = queryEmbeddingResult.embeddings.find(e => e.provider === 'openai')?.embedding ||
+    //                     queryEmbeddingResult.embeddings[0].embedding;
     
     // Retrieve similar documents
-    const relevantDocuments = await this.vectorStore.similaritySearch(
-      'maritime_leads',
-      queryVector
-    );
+    // const relevantDocuments = await this.vectorStore.similaritySearch(
+    //   'maritime_leads',
+    //   queryVector
+    // );
     
-    // Generate lead insights
-    const leadInsights = await this.leadGenerator.generateLeadInsights(
-      relevantDocuments,
-      finalQuery
-    );
+    // // Generate lead insights
+    // const leadInsights = await this.leadGenerator.generateLeadInsights(
+    //   relevantDocuments,
+    //   finalQuery
+    // );
     
-    return {
-      scrapedData,
-      relevantDocuments,
-      leadInsights
-    };
+    // return {
+    //   scrapedData,
+    //   relevantDocuments,
+    //   leadInsights
+    // };
   }
 }
 
