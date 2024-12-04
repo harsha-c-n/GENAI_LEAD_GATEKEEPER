@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { MaritimeLeadService } from './leadgeneration.service';
+import { MaritimeLeadService } from './lead-generation.service';
 interface MaritimeLead {
   id: string;
   name: string;
