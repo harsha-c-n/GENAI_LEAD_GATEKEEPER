@@ -26,20 +26,18 @@ class AstraVectorStore {
 
   
 
-  async similaritySearch(collection: string, queryVector: number[], k = 5) {
+  async similaritySearch(queryVector: any) {
     const db = this.client.db(this.endpoint);
-    const vectorCollection = db.collection(collection);
-  
-    return vectorCollection.find(
-      // Empty filter to match all documents
-      {}, 
-      {
-        // Sort by vector similarity
-        sort: { $vector: queryVector },
-        // Limit results
-        limit: k
-      }
-    ).toArray();
+    const vectorCollection = await db.collection('gendb');
+
+    const cursor = vectorCollection.find({}, {
+      sort: {
+        $vector: queryVector.data[0].embedding,
+      },
+      limit: 10
+    })
+    const documents=await cursor.toArray()
+    return documents;
   }
 
   async createCollection(collection: string, options?: any) {
