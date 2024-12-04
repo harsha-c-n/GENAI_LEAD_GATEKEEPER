@@ -7,6 +7,7 @@ import { rateLimiterMiddleware } from './middleware/rate-limiter.middleware';
 import leadGenerationRoutes from './routes/lead-generation.routes';
 import scrapingRoutes from './routes/scraping.routes';
 import ChatRoute from './routes/chat.routes';
+import LeadGenerationWorkflow from './services/workflow/lead-generation-workflow.service';
 // Load environment variables
 dotenv.config();
 
@@ -47,20 +48,25 @@ class Server {
   }
 
   private initializeRoutes() {
-    // Base route
-    this.app.get('/', (req, res) => {
-      res.json({
-        message: 'Maritime Lead Generation API',
-        status: 'healthy',
-        version: '1.0.0'
-      });
+    // Maritime leads generation route
+    this.app.get('/api/maritime-leads', async (req, res, next) => {
+      try {
+        const leadGenerationWorkflow = new LeadGenerationWorkflow();
+        const leadResults = await leadGenerationWorkflow.generateLeads();
+    
+        res.json({
+          success: true,
+          data: leadResults
+        });
+      } catch (error) {
+        next(error);
+      }
     });
-
-    // API routes
-    this.app.use('/api/leads', leadGenerationRoutes);
+  
+    // API route registrations
+    this.app.use('/api/generate', leadGenerationRoutes);
     this.app.use('/api/scraping', scrapingRoutes);
     this.app.use('/api/chat', ChatRoute);
-
   }
 
   private initializeErrorHandling() {

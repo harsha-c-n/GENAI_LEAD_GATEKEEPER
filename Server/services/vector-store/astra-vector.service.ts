@@ -5,16 +5,17 @@ dotenv.config({ path: path.join(__dirname, '../../../.env') });
 
 class AstraVectorStore {
   private client: DataAPIClient;
-  private namespace: string;
+  private endpoint: string;
 
   constructor() {
     this.client = new DataAPIClient(process.env.ASTRA_DB_TOKEN);
-    this.namespace = process.env.ASTRA_DB_NAMESPACE || 'default_namespace';
+    this.endpoint = process.env.ASTRA_DB_ENDPOINT || 'default_endpoint';
   }
 
   async upsertVectors(collection: string, documents: any[]) {
-    const db = this.client.db(this.namespace);
+    const db = this.client.db(this.endpoint);
     const vectorCollection = db.collection(collection);
+console.log("connection established..")
 
     const upsertOperations = documents.map(doc => 
       vectorCollection.insertOne({
@@ -27,7 +28,7 @@ class AstraVectorStore {
   }
 
   async similaritySearch(collection: string, queryVector: number[], k = 5) {
-    const db = this.client.db(this.namespace);
+    const db = this.client.db(this.endpoint);
     const vectorCollection = db.collection(collection);
   
     return vectorCollection.find(
@@ -43,12 +44,12 @@ class AstraVectorStore {
   }
 
   async createCollection(collection: string, options?: any) {
-    const db = this.client.db(this.namespace);
+    const db = this.client.db(this.endpoint);
     return db.createCollection(collection, options);
   }
 
   async deleteCollection(collection: string) {
-    const db = this.client.db(this.namespace);
+    const db = this.client.db(this.endpoint);
     return db.dropCollection(collection);
   }
 }
