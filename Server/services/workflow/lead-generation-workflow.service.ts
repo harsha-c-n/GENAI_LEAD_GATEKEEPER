@@ -16,26 +16,46 @@ class LeadGenerationWorkflow {
   private embeddingService: EmbeddingService;
   private vectorStore: AstraVectorStore;
   private leadGenerator: LeadGenerationService;
+  private defaultQuery: string;
 
   constructor() {
     this.webScraper = new WebScraperService();
     this.embeddingService = new EmbeddingService();
     this.vectorStore = new AstraVectorStore();
     this.leadGenerator = new LeadGenerationService();
+    
+    // Set the default query for maritime B2B leads
+    this.defaultQuery = `Generate high-quality B2B leads for selling a digital web application designed for maritime shipping companies. Focus on companies with the following attributes:
+1. **Industry**: Maritime shipping, logistics, or supply chain management.
+2. **Revenue & Financial Data**: Companies with annual revenues of $100M+ or those showing recent growth trends.
+3. **Geographical Focus**: Europe, Asia-Pacific, and North America.
+4. **Recent Trends**: Prioritize companies involved in digitization, sustainability, or adopting AI-driven analytics.
+5. **Decision Makers**: Provide details on C-level executives, IT directors, and operations managers.
+6. **Use Case**: Highlight how they are leveraging or planning to adopt digital solutions to improve efficiency, compliance, and fuel optimization.
+Include company names, financial data, recent news (like partnerships or technology adoption), and contact details where available.`;
   }
 
-  async generateLeads(query: string, sources: any) {
-    // Scrape websites
-    const scrapedData = await this.webScraper.scrapeWebsites(sources);
+  // Method to set a custom default query if needed
+  setDefaultQuery(query: string) {
+    this.defaultQuery = query;
+  }
 
+  async generateLeads(query?: string, sources?: any) {
+    console.log("AAAAAAAAAAAAAAAA")
+    // Use the provided query or fall back to the default query
+    const finalQuery = query || this.defaultQuery;
+
+    // Scrape websites
+    const scrapedData = await this.webScraper.scrapeWebsites();
+    
     // Generate embeddings
     const texts = scrapedData.map(data => data.content);
     const embeddingResult = await this.embeddingService.generateEmbeddings(texts);
-
+    
     // Extract vector values 
     const vectorData = scrapedData.map((data, index) => {
       // Find the OpenAI embedding or use the first available
-      const embedding = embeddingResult.embeddings.find(e => e.provider === 'openai')?.embedding || 
+      const embedding = embeddingResult.embeddings.find(e => e.provider === 'openai')?.embedding ||
                         embeddingResult.embeddings[0].embedding;
       
       return {
@@ -43,29 +63,29 @@ class LeadGenerationWorkflow {
         embedding: embedding
       };
     });
-
+    
     // Upsert vectors to Astra DB
     await this.vectorStore.upsertVectors('maritime_leads', vectorData);
-
+    
     // Generate query embedding
-    const queryEmbeddingResult = await this.embeddingService.generateEmbeddings([query]);
-
+    const queryEmbeddingResult = await this.embeddingService.generateEmbeddings([finalQuery]);
+    
     // Extract query vector
-    const queryVector = queryEmbeddingResult.embeddings.find(e => e.provider === 'openai')?.embedding || 
+    const queryVector = queryEmbeddingResult.embeddings.find(e => e.provider === 'openai')?.embedding ||
                         queryEmbeddingResult.embeddings[0].embedding;
-
+    
     // Retrieve similar documents
     const relevantDocuments = await this.vectorStore.similaritySearch(
-      'maritime_leads', 
+      'maritime_leads',
       queryVector
     );
-
+    
     // Generate lead insights
     const leadInsights = await this.leadGenerator.generateLeadInsights(
-      relevantDocuments, 
-      query
+      relevantDocuments,
+      finalQuery
     );
-
+    
     return {
       scrapedData,
       relevantDocuments,
