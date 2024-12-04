@@ -1,4 +1,7 @@
 import axios from 'axios';
+import dotenv from 'dotenv';
+import path from 'path';
+dotenv.config({ path: path.join(__dirname, '../../.env') });
 
 interface LLMConfig {
   temperature?: number;
@@ -23,7 +26,7 @@ class LLMService {
   private applicationName: string;
 
   constructor() {
-    this.apiBaseUrl = 'https://api.private.prod.zeronorth.app/llm-service/v1/complete';
+    this.apiBaseUrl = 'https://api.private.test.zeronorth.app/llm-service/v1/complete';
     this.teamTag = process.env.TEAM_TAG || '';
     this.applicationName = process.env.APPLICATION_NAME || '';
   }

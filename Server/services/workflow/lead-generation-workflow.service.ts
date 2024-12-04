@@ -36,7 +36,7 @@ Include company names, financial data, recent news (like partnerships or technol
   }
 
   // Method to set a custom default query if needed
-  setDefaultQuery(query: string) {
+  setDefaultQuery(query: any) {
     this.defaultQuery = query;
   }
 
@@ -65,29 +65,26 @@ Include company names, financial data, recent news (like partnerships or technol
    
     
     // Generate query embedding
-    // const queryEmbeddingResult = await this.embeddingService.generateEmbeddings([finalQuery]);
+    const queryEmbeddingResult = await this.embeddingService.generateEmbeddings(finalQuery);
     
     // // Extract query vector
-    // const queryVector = queryEmbeddingResult.embeddings.find(e => e.provider === 'openai')?.embedding ||
-    //                     queryEmbeddingResult.embeddings[0].embedding;
-    
+  
     // Retrieve similar documents
-    // const relevantDocuments = await this.vectorStore.similaritySearch(
-    //   'maritime_leads',
-    //   queryVector
-    // );
+    const relevantDocuments = await this.vectorStore.similaritySearch(
+      queryEmbeddingResult
+    );
     
     // // Generate lead insights
-    // const leadInsights = await this.leadGenerator.generateLeadInsights(
-    //   relevantDocuments,
-    //   finalQuery
-    // );
+    const leadInsights = await this.leadGenerator.generateLeadInsights(
+      relevantDocuments,
+      finalQuery
+    );
     
-    // return {
-    //   scrapedData,
-    //   relevantDocuments,
-    //   leadInsights
-    // };
+    return {
+      scrapedData,
+      relevantDocuments,
+      leadInsights
+    };
   }
 }
 
