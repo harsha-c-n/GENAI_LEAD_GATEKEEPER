@@ -2,10 +2,7 @@ import { launch, Page, Browser } from 'puppeteer';
 
 class WebScraperService {
   private sources: string[] = [
-    'https://www.marinelink.com/', 
-    'https://www.maritime-executive.com/', 
-    'https://www.seatrade-maritime.com/', 
-    'https://www.rivieramm.com/news-content-hub/news-content-hub/container-shipping-top-2024-trends-78826'
+    'https://en.wikipedia.org/wiki/Maersk',  
   ];
 
   // Method to update sources

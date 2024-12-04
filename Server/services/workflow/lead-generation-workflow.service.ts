@@ -50,6 +50,10 @@ Include company names, financial data, recent news (like partnerships or technol
     
     // Generate embeddings
     const texts = scrapedData.map(data => data.content);
+    console.log("AAAAAAAAAAAAAAAAAA")
+    console.log(texts)
+    console.log("AAAAAAAAAAAAAAAAAA")
+    
     const embeddingResult = await this.embeddingService.generateEmbeddings(texts);
     
     // Extract vector values 
