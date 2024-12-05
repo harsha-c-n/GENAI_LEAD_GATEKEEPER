@@ -27,7 +27,7 @@ router.post('/generate',
       }
 
       // Generate leads using workflow
-      const leadResults = await leadGenerationWorkflow.generateLeads(query, sources);
+      const leadResults = await leadGenerationWorkflow.generateLeads(query);
 
       res.json({
         success: true,

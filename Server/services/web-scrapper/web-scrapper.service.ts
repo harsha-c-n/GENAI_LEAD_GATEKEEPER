@@ -4,6 +4,15 @@ import { RecursiveCharacterTextSplitter } from "langchain/text_splitter";
 class WebScraperService {
   private sources: string[] = [
     'https://en.wikipedia.org/wiki/Maersk',  
+    'https://en.wikipedia.org/wiki/Ocean_Network_Express',
+    'https://en.wikipedia.org/wiki/CMA_CGM',
+    'https://en.wikipedia.org/wiki/COSCO_Shipping_Lines',
+    'https://en.wikipedia.org/wiki/Evergreen_Marine_Corporation',
+    'https://en.wikipedia.org/wiki/ZIM_(shipping_company)',
+    'https://en.wikipedia.org/wiki/Pacific_International_Lines',
+    'https://en.wikipedia.org/wiki/Wan_Hai_Lines',
+    'https://en.wikipedia.org/wiki/Mediterranean_Shipping_Company',
+    'https://www.msc.com/en/newsroom/news'
   ];
 
   // Method to update sources

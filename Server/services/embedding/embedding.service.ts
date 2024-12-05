@@ -14,7 +14,7 @@ class EmbeddingService {
   async generateEmbeddings(texts: string) {
     try {
       const embeddings = await this.openai.embeddings.create({
-        model: "text-embedding-3-small",
+        model: "text-embedding-ada-002",
         input: texts,
         encoding_format:"float"
       });
