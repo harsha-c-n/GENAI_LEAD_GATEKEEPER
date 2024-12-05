@@ -3,7 +3,7 @@ import EmbeddingService from "../embedding/embedding.service";
 import LeadGenerationService from "../lead-generation/lead-generation.service";
 import AstraVectorStore from "../vector-store/astra-vector.service";
 import WebScraperService from "../web-scrapper/web-scrapper.service";
-import Logger  from '../../utils/logger'; // Assume you have a logging utility
+import Logger  from '../../utils/logger';
 
 class LeadGenerationWorkflow {
   private webScraper: WebScraperService;
@@ -57,7 +57,7 @@ class LeadGenerationWorkflow {
             embedding: embeddingResult.data[0].embedding
           });
         } catch (error) {
-          
+          Logger.error('error:' ,error);
         }
       }
 

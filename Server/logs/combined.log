@@ -16,3 +16,9 @@
 {"level":"info","message":"Found 10 relevant documents","timestamp":"2024-12-05 10:59:07"}
 {"level":"info","message":"Generating leads for query: Generate high-quality B2B leads for selling a digital web application designed for maritime shipping companies...","timestamp":"2024-12-05 11:01:03"}
 {"level":"info","message":"Found 10 relevant documents","timestamp":"2024-12-05 11:01:30"}
+{"level":"info","message":"Starting scheduled data update...","timestamp":"2024-12-05 19:35:41"}
+{"level":"info","message":"Scheduled update completed in 299427ms. Embedded 274 items.","timestamp":"2024-12-05 19:40:40"}
+{"level":"info","message":"Scheduled updates initialized for every 12 hours","timestamp":"2024-12-05 19:40:40"}
+{"level":"info","message":"Lead Generation Workflow initialized","timestamp":"2024-12-05 19:40:40"}
+{"level":"info","message":"Generating leads for query: Generate high-quality B2B leads for selling a digital web application designed for maritime shipping companies...","timestamp":"2024-12-05 19:41:09"}
+{"level":"info","message":"Found 10 relevant documents","timestamp":"2024-12-05 19:41:32"}
