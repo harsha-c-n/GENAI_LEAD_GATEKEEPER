@@ -74,7 +74,7 @@ class LeadGenerationService {
 
       Using the maritime industry context, generate a detailed lead generation insight:
       1. Identify potential business opportunities
-      2. Highlight key companies or sectors
+      2. list potential companies which are ready to adopt our product based on their revenue, marketcap, profit
       3. Provide strategic recommendations
       4. Suggest potential sales approaches
     `;
