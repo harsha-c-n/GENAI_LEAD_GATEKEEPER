@@ -7,7 +7,9 @@ import { rateLimiterMiddleware } from './middleware/rate-limiter.middleware';
 import leadGenerationRoutes from './routes/lead-generation.routes';
 import scrapingRoutes from './routes/scraping.routes';
 import ChatRoute from './routes/chat.routes';
-import LeadGenerationWorkflow from './services/workflow/lead-generation-workflow.service';
+import LeadGenerationWorkflow, { initLeadGenerationWorkflow } from './services/workflow/lead-generation-workflow.service';
+import Logger from './utils/logger';
+
 // Load environment variables
 dotenv.config();
 
@@ -18,13 +20,13 @@ class Server {
   constructor() {
     this.app = express();
     this.port = parseInt(process.env.PORT || '3000', 10);
-    
+
     // Initialize middleware
     this.initializeMiddlewares();
-    
+
     // Initialize routes
     this.initializeRoutes();
-    
+
     // Initialize error handling
     this.initializeErrorHandling();
   }
@@ -32,7 +34,7 @@ class Server {
   private initializeMiddlewares() {
     // Security middleware
     this.app.use(helmet());
-    
+
     // CORS configuration
     this.app.use(cors({
       origin: process.env.CORS_ORIGIN || '*',
@@ -42,7 +44,7 @@ class Server {
 
     // JSON parsing middleware
     this.app.use(express.json({ limit: '50mb' }));
-    
+
     // Rate limiting middleware
     this.app.use(rateLimiterMiddleware);
   }
@@ -53,7 +55,7 @@ class Server {
       try {
         const leadGenerationWorkflow = new LeadGenerationWorkflow();
         const leadResults = await leadGenerationWorkflow.generateLeads();
-    
+
         res.json({
           success: true,
           data: leadResults
@@ -62,7 +64,7 @@ class Server {
         next(error);
       }
     });
-  
+
     // API route registrations
     this.app.use('/api/generate', leadGenerationRoutes);
     this.app.use('/api/scraping', scrapingRoutes);
@@ -74,11 +76,23 @@ class Server {
     this.app.use(errorHandler);
   }
 
-  public start() {
-    this.app.listen(this.port, () => {
-      console.log(`Server running on port ${this.port}`);
-      console.log(`Environment: ${process.env.NODE_ENV || 'development'}`);
-    });
+  public async start() {
+    try {
+      // Start the server
+      this.app.listen(this.port, () => {
+        console.log(`Server running on port ${this.port}`);
+        console.log(`Environment: ${process.env.NODE_ENV || 'development'}`);
+      });
+      // Initialize Lead Generation Workflow
+      await initLeadGenerationWorkflow();
+      Logger.info('Lead Generation Workflow initialized');
+
+
+    } catch (error) {
+      Logger.error('Failed to start server', error);
+      process.exit(1);
+    }
+
   }
 }
 
