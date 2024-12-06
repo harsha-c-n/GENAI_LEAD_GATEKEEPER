@@ -22,3 +22,55 @@
 {"level":"info","message":"Lead Generation Workflow initialized","timestamp":"2024-12-05 19:40:40"}
 {"level":"info","message":"Generating leads for query: Generate high-quality B2B leads for selling a digital web application designed for maritime shipping companies...","timestamp":"2024-12-05 19:41:09"}
 {"level":"info","message":"Found 10 relevant documents","timestamp":"2024-12-05 19:41:32"}
+{"level":"info","message":"Generating leads for query: Generate high-quality B2B leads for selling a digital web application designed for maritime shipping companies...","timestamp":"2024-12-06 08:48:19"}
+{"level":"info","message":"Generating leads for query: Generate high-quality B2B leads for selling a digital web application designed for maritime shipping companies...","timestamp":"2024-12-06 08:48:27"}
+{"level":"info","message":"Found 10 relevant documents","timestamp":"2024-12-06 08:48:40"}
+{"level":"info","message":"Found 10 relevant documents","timestamp":"2024-12-06 08:48:49"}
+{"level":"info","message":"Generating leads for query: [object Object]","timestamp":"2024-12-06 08:50:20"}
+{"level":"error","message":"Lead generation failed: Error: 400 '$.input' is invalid. Please check the API reference: https://platform.openai.com/docs/api-reference.","timestamp":"2024-12-06 08:50:20"}
+{"level":"info","message":"Generating leads for query: Generate high-quality B2B leads for selling a digital web application designed for maritime shipping companies...","timestamp":"2024-12-06 08:52:11"}
+{"level":"info","message":"Found 10 relevant documents","timestamp":"2024-12-06 08:52:31"}
+{"level":"info","message":"Generating leads for query: [object Object]","timestamp":"2024-12-06 08:52:52"}
+{"level":"error","message":"Lead generation failed: Error: 400 '$.input' is invalid. Please check the API reference: https://platform.openai.com/docs/api-reference.","timestamp":"2024-12-06 08:52:53"}
+{"level":"info","message":"Generating leads for query: Generate high-quality B2B leads for selling a digital web application designed for maritime shipping companies...","timestamp":"2024-12-06 08:54:19"}
+{"level":"info","message":"Found 10 relevant documents","timestamp":"2024-12-06 08:54:42"}
+{"level":"info","message":"Generating leads for query: Generate high-quality B2B leads for selling a digital web application designed for maritime shipping companies...","timestamp":"2024-12-06 08:54:47"}
+{"level":"info","message":"Found 10 relevant documents","timestamp":"2024-12-06 08:55:09"}
+{"level":"info","message":"Generating leads for query: Generate high-quality B2B leads for selling a digital web application designed for maritime shipping companies...","timestamp":"2024-12-06 08:55:48"}
+{"level":"info","message":"Found 10 relevant documents","timestamp":"2024-12-06 08:56:05"}
+{"level":"info","message":"Generating leads for query: Generate high-quality B2B leads for selling a digital web application designed for maritime shipping companies...","timestamp":"2024-12-06 08:58:35"}
+{"level":"info","message":"Found 10 relevant documents","timestamp":"2024-12-06 08:59:02"}
+{"level":"info","message":"Generating leads for query: Generate high-quality B2B leads for selling a digital web application designed for maritime shipping companies...","timestamp":"2024-12-06 08:59:35"}
+{"level":"info","message":"Found 10 relevant documents","timestamp":"2024-12-06 09:00:10"}
+{"level":"error","message":"Lead generation failed: TypeError: Cannot read properties of undefined (reading 'content')","timestamp":"2024-12-06 09:01:22"}
+{"level":"error","message":"Error: Cannot read properties of undefined (reading 'content')","method":"GET","path":"/api/maritime-leads","stack":"TypeError: Cannot read properties of undefined (reading 'content')\n    at LeadGenerationWorkflow.<anonymous> (C:\\Users\\alex.dv\\Desktop\\project\\GENAI_LEAD_GATEKEEPER\\Server\\services\\workflow\\lead-generation-workflow.service.ts:90:32)\n    at Generator.next (<anonymous>)\n    at C:\\Users\\alex.dv\\Desktop\\project\\GENAI_LEAD_GATEKEEPER\\Server\\services\\workflow\\lead-generation-workflow.service.ts:8:71\n    at new Promise (<anonymous>)\n    at __awaiter (C:\\Users\\alex.dv\\Desktop\\project\\GENAI_LEAD_GATEKEEPER\\Server\\services\\workflow\\lead-generation-workflow.service.ts:4:12)\n    at LeadGenerationWorkflow.generateLeads (C:\\Users\\alex.dv\\Desktop\\project\\GENAI_LEAD_GATEKEEPER\\Server\\services\\workflow\\lead-generation-workflow.service.ts:105:16)\n    at Server.<anonymous> (C:\\Users\\alex.dv\\Desktop\\project\\GENAI_LEAD_GATEKEEPER\\Server\\server.ts:57:58)\n    at Generator.next (<anonymous>)\n    at C:\\Users\\alex.dv\\Desktop\\project\\GENAI_LEAD_GATEKEEPER\\Server\\server.ts:8:71\n    at new Promise (<anonymous>)","timestamp":"2024-12-06 09:01:22"}
+{"level":"info","message":"Generating leads for query: Generate high-quality B2B leads for selling a digital web application designed for maritime shipping companies...","timestamp":"2024-12-06 09:02:07"}
+{"level":"info","message":"Found 10 relevant documents","timestamp":"2024-12-06 09:02:32"}
+{"level":"info","message":"Generating leads for query: Generate high-quality B2B leads for selling a digital web application designed for maritime shipping companies...","timestamp":"2024-12-06 09:02:42"}
+{"level":"info","message":"Found 10 relevant documents","timestamp":"2024-12-06 09:03:12"}
+{"level":"info","message":"Generating leads for query: Generate high-quality B2B leads for selling a digital web application designed for maritime shipping companies...","timestamp":"2024-12-06 09:04:50"}
+{"level":"info","message":"Found 10 relevant documents","timestamp":"2024-12-06 09:05:14"}
+{"level":"info","message":"Generating leads for query: Generate high-quality B2B leads for selling a digital web application designed for maritime shipping companies...","timestamp":"2024-12-06 09:05:20"}
+{"level":"info","message":"Found 10 relevant documents","timestamp":"2024-12-06 09:05:46"}
+{"level":"info","message":"Generating leads for query: Generate high-quality B2B leads for selling a digital web application designed for maritime shipping companies...","timestamp":"2024-12-06 09:07:02"}
+{"level":"info","message":"Generating leads for query: Generate high-quality B2B leads for selling a digital web application designed for maritime shipping companies...","timestamp":"2024-12-06 09:07:03"}
+{"level":"info","message":"Found 10 relevant documents","timestamp":"2024-12-06 09:07:25"}
+{"level":"info","message":"Found 10 relevant documents","timestamp":"2024-12-06 09:07:27"}
+{"level":"info","message":"Generating leads for query: hi","timestamp":"2024-12-06 09:08:29"}
+{"level":"info","message":"Found 10 relevant documents","timestamp":"2024-12-06 09:08:54"}
+{"level":"info","message":"Generating leads for query: Generate high-quality B2B leads for selling a digital web application designed for maritime shipping companies...","timestamp":"2024-12-06 09:09:16"}
+{"level":"info","message":"Found 10 relevant documents","timestamp":"2024-12-06 09:09:37"}
+{"level":"info","message":"Generating leads for query: hi","timestamp":"2024-12-06 09:09:49"}
+{"level":"info","message":"Found 10 relevant documents","timestamp":"2024-12-06 09:10:10"}
+{"level":"info","message":"Generating leads for query: generate a detailed lead generation insight:\n      1. Identify potential business opportunities\n      2. list potential companies which are ready to adopt our software product with their revenue, marketcap, profit\n  ","timestamp":"2024-12-06 09:20:14"}
+{"level":"info","message":"Found 10 relevant documents","timestamp":"2024-12-06 09:20:32"}
+{"level":"info","message":"Generating leads for query: hi","timestamp":"2024-12-06 09:21:26"}
+{"level":"info","message":"Found 10 relevant documents","timestamp":"2024-12-06 09:21:30"}
+{"level":"info","message":"Generating leads for query: generate a detailed lead generation insight:\n      1. Identify potential business opportunities\n      2. list potential companies which are ready to adopt our software product with their revenue, marketcap, profit\n  ","timestamp":"2024-12-06 09:24:44"}
+{"level":"info","message":"Found 10 relevant documents","timestamp":"2024-12-06 09:25:06"}
+{"level":"info","message":"Generating leads for query: hi","timestamp":"2024-12-06 09:25:56"}
+{"level":"info","message":"Found 10 relevant documents","timestamp":"2024-12-06 09:26:00"}
+{"level":"info","message":"Generating leads for query: which is the largest shipping company out there","timestamp":"2024-12-06 09:26:16"}
+{"level":"info","message":"Found 10 relevant documents","timestamp":"2024-12-06 09:26:19"}
+{"level":"info","message":"Generating leads for query: what about MSC","timestamp":"2024-12-06 09:26:40"}
+{"level":"info","message":"Found 10 relevant documents","timestamp":"2024-12-06 09:26:54"}

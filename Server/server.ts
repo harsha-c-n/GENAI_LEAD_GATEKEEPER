@@ -84,8 +84,8 @@ class Server {
         console.log(`Environment: ${process.env.NODE_ENV || 'development'}`);
       });
       // Initialize Lead Generation Workflow
-      await initLeadGenerationWorkflow();
-      Logger.info('Lead Generation Workflow initialized');
+      // await initLeadGenerationWorkflow();
+      // Logger.info('Lead Generation Workflow initialized');
 
 
     } catch (error) {
