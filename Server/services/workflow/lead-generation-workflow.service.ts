@@ -20,7 +20,10 @@ class LeadGenerationWorkflow {
     this.vectorStore = new AstraVectorStore();
     this.leadGenerator = new LeadGenerationService();
     
-    this.defaultQuery = `Generate high-quality B2B leads for selling a digital web application designed for maritime shipping companies...`; // Your existing query
+    this.defaultQuery = `generate a detailed lead generation insight:
+      1. Identify potential business opportunities
+      2. list potential companies which are ready to adopt our software product with their revenue, marketcap, profit
+  `; // Your existing query
   }
 
   // Scheduled Data Update Method
@@ -82,15 +85,14 @@ class LeadGenerationWorkflow {
   }
 
   // Main Lead Generation Method
-  async generateLeads(query?: string) {
+  async generateLeads(query?: any) {
     try {
       // Use provided query or default
       const finalQuery = query || this.defaultQuery;
       Logger.info(`Generating leads for query: ${finalQuery}`);
-
       // 1. Generate Query Embedding
       const queryEmbeddingResult = await this.embeddingService.generateEmbeddings(finalQuery);
-      
+      console.log(queryEmbeddingResult,": queryEmbeddingResult")
       // 2. Perform Similarity Search
       const relevantDocuments = await this.vectorStore.similaritySearch(
         queryEmbeddingResult
@@ -98,8 +100,7 @@ class LeadGenerationWorkflow {
 
       // 3. Generate Lead Insights
       const leadInsights = await this.leadGenerator.generateLeadInsights(
-        relevantDocuments,
-        finalQuery
+        finalQuery, relevantDocuments
       );
 
       // Log results

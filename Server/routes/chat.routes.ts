@@ -2,6 +2,7 @@ import express from 'express';
 import OpenAI from 'openai';
 import dotenv from 'dotenv';
 import path from 'path';
+import LeadGenerationWorkflow from '../services/workflow/lead-generation-workflow.service';
 
 dotenv.config({ path: path.join(__dirname, '../../.env') });
 
@@ -9,22 +10,18 @@ const ChatRoute = express.Router();
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY
 });
+const leadGenerator = new LeadGenerationWorkflow();
+
 
 ChatRoute.post('/', async (req, res) => {
     try {
       const { messages } = req.body;
-  
-      const response = await openai.chat.completions.create({
-        model: "gpt-4-turbo",
-        messages: messages.map((m: { role: any; content: any; }) => ({
-          role: m.role,
-          content: m.content
-        }))
-      });
-  
+      const message= messages[messages?.length-1]?.content
+      const response = await leadGenerator.generateLeads(message)
+     
       res.json({
         role: 'assistant',
-        content: response.choices[0].message.content
+        content: response.leadInsights
       });
     } catch (error: unknown) {
       if (error instanceof Error) {

@@ -65,18 +65,20 @@ class LeadGenerationService {
     });
   }
 
-  async generateLeadInsights(relevantDocuments: any[], query: string) {
-    const context = relevantDocuments.map(doc => doc.content).join('\n\n');
+  async generateLeadInsights( query: string, relevantDocuments?: any[],) {
+    const context = relevantDocuments?.map(doc => doc.content).join('\n\n');
 
     const prompt = `
-      Context: ${context}
-      Query: ${query}
-
-      Using the maritime industry context, generate a detailed lead generation insight:
-      1. Identify potential business opportunities
-      2. list potential companies which are ready to adopt our product based on their revenue, marketcap, profit
-      3. Provide strategic recommendations
-      4. Suggest potential sales approaches
+    You are a maritime market intelligence analyst. Use below context to augment what you know about the maritime bussines, context will provide you with most recent page data from wikipedia and other news websites.
+    Format response using markdown where applicable and dont return images.
+    --------
+    START CONTEXT
+    ${context}
+    END CONTEXT
+    -----------
+    -----------
+    QUESTION: ${query}
+    -----------
     `;
 
     const response = await this.openai.chat.completions.create({
