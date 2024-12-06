@@ -83,9 +83,9 @@ class Server {
         console.log(`Server running on port ${this.port}`);
         console.log(`Environment: ${process.env.NODE_ENV || 'development'}`);
       });
-      // Initialize Lead Generation Workflow
-      // await initLeadGenerationWorkflow();
-      // Logger.info('Lead Generation Workflow initialized');
+      // Initialize Lead Generation Workflow works every 12 hrs from the start of server(crone job)
+      await initLeadGenerationWorkflow();
+      Logger.info('Lead Generation Workflow initialized');
 
 
     } catch (error) {
