@@ -4,9 +4,9 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-      "start": "cd server && npm start",
-      "dev": "concurrently \"cd client && npm start\" \"cd server && npm run dev\"",
-      "build": "cd client && npm run build && cd ../server && npm run build"
+      "start": "cd Server && npm start",
+      "dev": "concurrently \"cd Client && npm start\" \"cd Server && npm run dev\"",
+      "build": "cd Client && npm run build && cd ../Server && npm run build"
     },
     "keywords": [],
     "author": "",
