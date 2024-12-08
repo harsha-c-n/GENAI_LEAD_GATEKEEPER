@@ -21,8 +21,27 @@ class LeadGenerationWorkflow {
     this.vectorStore = new AstraVectorStore();
     this.leadGenerator = new LeadGenerationService();
 
-    this.defaultQuery = `generate a detailed lead generation insight:
-      just list potential companies names, their market cap, profit, employees, address as a json and nothing else
+    this.defaultQuery = `Generate a list of potential maritime companies with the following business details:
+
+Company Name
+Market Cap
+Profit
+Employees
+Address
+Return the data as an array of JSON objects in the following structure:
+
+{
+    "company_name": "",
+    "market_cap": "",
+    "profit": "",
+    "employees": "",
+    "address": ""
+}
+Ensure the following:
+
+No empty objects. Only include companies with valid data for all the fields.
+Include well-known and significant maritime companies in the industry, such as shipping lines, port operators, and logistics companies.
+Do not include private companies or companies with incomplete information, unless estimations or reliable data can be used for market cap and profit.
   `; // Your existing query
   }
 

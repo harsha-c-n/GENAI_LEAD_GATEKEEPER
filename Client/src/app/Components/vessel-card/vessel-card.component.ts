@@ -46,8 +46,9 @@ export class VesselCardComponent implements OnInit {
       }
     }
     console.log(this.maritimeLead,": maritimeLead")
+    console.log(this.maritimeLead[0],": maritimeLead[0]")
         // this.maritimeLead = data.data;
-        this.rows = this.maritimeLead[0]; // Update the rows for the table
+        this.rows = this.maritimeLead; // Update the rows for the table
         this.isLoading = false; // API call is complete
       },
       (error) => {
