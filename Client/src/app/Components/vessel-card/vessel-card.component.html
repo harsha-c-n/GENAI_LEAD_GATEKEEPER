@@ -1,15 +1,16 @@
-<div class="table-container">
-  <div id="cards-container">
-    <ngx-datatable
-    class="bootstrap ngx-datatable"
+<div *ngIf="isLoading" class="loading-container">
+  <p>Loading maritime leads...</p>
+</div>
+
+<div *ngIf="!isLoading">
+  <ngx-datatable
+    class="material"
     [rows]="rows"
     [columns]="columns"
+    [columnMode]="'force'"
     [headerHeight]="50"
     [footerHeight]="50"
     [rowHeight]="'auto'"
-    [scrollbarV]="false"
-    columnMode="force"
   >
   </ngx-datatable>
-  </div>
-  </div>
+</div>

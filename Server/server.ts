@@ -9,6 +9,8 @@ import scrapingRoutes from './routes/scraping.routes';
 import ChatRoute from './routes/chat.routes';
 import LeadGenerationWorkflow, { initLeadGenerationWorkflow } from './services/workflow/lead-generation-workflow.service';
 import Logger from './utils/logger';
+import puppeteer from 'puppeteer';
+
 
 // Load environment variables
 dotenv.config();
@@ -29,6 +31,7 @@ class Server {
 
     // Initialize error handling
     this.initializeErrorHandling();
+   
   }
 
   private initializeMiddlewares() {

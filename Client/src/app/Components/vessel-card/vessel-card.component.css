@@ -96,3 +96,10 @@ ngx-datatable .datatable-scroll {
         color: #000;
     }
 }
+.loading-container {
+    text-align: center;
+    margin: 20px;
+    font-size: 18px;
+    color: #555;
+  }
+  
