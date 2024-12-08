@@ -5,6 +5,11 @@
         {{ message.content }}
       </div>
     </div>
+    <div *ngIf="loading" class="loading-indicator">
+      <span class="dot">.</span>
+      <span class="dot">.</span>
+      <span class="dot">.</span>
+    </div>
   </div>
   <input [(ngModel)]="userInput" (keyup.enter)="sendMessage()" placeholder="Type your message">
   <button (click)="sendMessage()">Send</button>

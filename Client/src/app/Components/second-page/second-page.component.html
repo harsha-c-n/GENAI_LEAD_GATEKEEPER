@@ -1,8 +1,13 @@
 <div class="container">
   <div class="section content-section" id="vessel-cards">
-    <h2>Prospective Clients</h2>
+    <div class="straightrow">
+      <h2>Prospective Clients</h2>
+      <i class="fa fa-home home-logo" (click)="goToHome()"></i>
+    </div>
+    
+    
     <app-vessel-card></app-vessel-card>
-    <div style="margin-top: 402px;">
+    <div>
       <button id="Chatbox" (click)="toggleChatbotModal()">
         <i class="fa-brands fa-rocketchat"></i>
       </button>

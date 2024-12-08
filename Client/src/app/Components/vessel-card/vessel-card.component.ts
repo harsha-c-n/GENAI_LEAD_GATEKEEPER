@@ -17,11 +17,11 @@ interface MaritimeLead {
 export class VesselCardComponent implements OnInit {
   public rows: any[] = [];
   public columns = [
-    { prop: 'company_name', name: 'Company Name' },
-    { prop: 'employees', name: 'Employees' },
-    { prop: 'profit', name: 'Revenue' },
-    { prop: 'market_cap', name: 'Market Cap' },
-    { prop: 'address', name: 'Location' },
+    { prop: 'company_name', name: 'Company Name', width: 200 },
+    { prop: 'employees', name: 'Employees', width: 200 },
+    { prop: 'profit', name: 'Revenue', width: 200 },
+    { prop: 'market_cap', name: 'Market Cap', width: 200 },
+    { prop: 'address', name: 'Location', width: 200 },
   ];
   maritimeLead = [];
   isLoading = true; // Tracks loading state

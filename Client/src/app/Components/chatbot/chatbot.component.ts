@@ -9,6 +9,7 @@ import { ChatService, ChatMessage } from './chatbot.service';
 export class ChatbotComponent {
   messages: ChatMessage[] = [];
   userInput = '';
+  loading = false;
 
   constructor(private chatService: ChatService) {}
 
@@ -19,17 +20,18 @@ export class ChatbotComponent {
       role: 'user',
       content: this.userInput
     };
-
+    this.userInput = '';
     this.messages.push(userMessage);
-    
+    this.loading = true;
     this.chatService.sendMessage(this.messages)
       .subscribe({
         next: (response: ChatMessage) => {
           this.messages.push(response);
-          this.userInput = '';
+          this.loading = false;
         },
         error: (err: any) => {
           console.error('Chat error', err);
+          this.loading = false;
         }
       });
   }

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -7,7 +8,7 @@ import { Component } from '@angular/core';
   styleUrl: './second-page.component.css'
 })
 export class SecondPageComponent {
-  
+  constructor(private router: Router) {} 
 
 
 
@@ -24,6 +25,9 @@ export class SecondPageComponent {
     if (modal) {
       modal.style.display = modal.style.display === 'block' ? 'none' : 'block'; // Toggle modal display
     }
+  }
+  goToHome() {
+    this.router.navigate(['/']); // Navigate to the home page
   }
 
 

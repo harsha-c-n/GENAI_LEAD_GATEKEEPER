@@ -1,39 +1,50 @@
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-  body {
-    font-family: "Raleway", serif;
-    line-height: 1.6;
-    color: #ffffff;
-    background: linear-gradient(to bottom, #393B44, #393B44);
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  h2{
-    margin-bottom: 3em;
-  }
-  /* Container Styling */
-  .container {
-    color: #ffffff;
-    width: 100%;
-    height: 100vh;
-    padding: 20px;
-    background: #151515;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-  }
-  /* Section Styling */
-  .section {
-    padding: 20px;
-    background: #343434;
-    margin: 1.5em;
-    border-radius: 12px;
-  
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  /* z-index: 1; */
+}
+
+body {
+  font-family: 'Raleway', serif;
+  line-height: 1.6;
+  color: #ffffff;
+  background: linear-gradient(to bottom, #393b44, #393b44);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#vessel-cards {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 31px;
+}
+.section.content-section {
+  /* width: 100vw; Full width of the viewport */
+  height: 100vh; /* Full height of the viewport */
+  display: flex; /* Enables alignment */
+  flex-direction: column; /* Arrange items vertically */
+}
+/* Container Styling */
+.container {
+  color: #ffffff;
+  width: 100%;
+  height: 100vh;
+  padding: 20px;
+  background: #151515;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+/* Section Styling */
+.section {
+  padding: 20px;
+  background: #343434;
+  margin: 1.5em;
+  border-radius: 12px;
+
   /* Header Section */
   .header-section {
     display: flex;
@@ -49,59 +60,71 @@
   /* Footer Section */
   .footer-section {
     height: 20%;
-    flex: .2;
+    flex: 0.2;
     border-top: 1px solid #e5e9f2;
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 10%;
   }
- /* Buttons */
-button {
-  background: linear-gradient(to bottom right, #ef4444, #ec4899);
-  color: white;
-  border: none;
-  padding: 15px;
-  border-radius: 50%;
-  font-size: 20px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: transform 0.3s ease; /* Smooth transition for scaling */
+  /* Buttons */
+  button {
+    background: linear-gradient(to bottom right, #ef4444, #ec4899);
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 50%;
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s ease; /* Smooth transition for scaling */
+  }
+
+  button:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    transform: scale(1.2); /* Increase size to 120% on hover */
+  }
 }
 
-button:hover {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-  transform: scale(1.2); /* Increase size to 120% on hover */
+.straightrow{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
-  }
+.home-logo {
+  font-size: 28px; /* Adjust the size of the icon */
+  background: linear-gradient(to bottom right, #ef4444, #ec4899); /* Gradient background */
+  -webkit-background-clip: text; /* Clip the background to the text */
+  color: transparent; /* Make the icon transparent so the background shows */
+  cursor: pointer;
+  /* display: inline-block; */
+}
 
 .modal {
   display: none; /* Hide by default */
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 24%;
   height: 100%;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
+  z-index: 0;
 
-
-.modal-content {
-  border-radius: 5px;
-  margin-top: 327px;
-  margin-left: 82px;
-  width: 15%;
-  height: 50%;
-  position: relative;
+  /* .modal-content { */
+    /* border-radius: 5px;
+    margin-top: 327px;
+    margin-left: 82px;
+    width: 15%;
+    height: 50%;
+    position: relative;
+  } */
 }
-}
 
-
-.close-btn {    
+.close-btn {
   position: absolute;
-  top: -12px;
-  right: -111px;
+  top: 7em;
+  left: 14em;
   background-color: #ec4899;
   color: white;
   border: none;
@@ -110,8 +133,9 @@ button:hover {
   width: 35px;
   height: 35px;
   cursor: pointer;
-  display: flex
-;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   justify-content: center;
   align-items: center;
 }
@@ -120,18 +144,19 @@ button:hover {
   background-color: darkred;
 }
 
-
 /* Optional: Styling for app-chatbot inside modal */
-app-chatbot {
-  height: 100%;
-  width: 100%;
+app-chatbot {      
+  position: absolute;
+  top: 5em;
+  left: 2em;
+  /* width: 8em; */
 }
-  /* ngx-datatable Styling */
-  /* General ngx-datatable Styles */
+/* ngx-datatable Styling */
+/* General ngx-datatable Styles */
 ngx-datatable {
   border-spacing: 1;
   border-collapse: collapse;
-  background: white; 
+  background: white;
   border-radius: 6px;
   overflow: hidden;
   max-width: 800px;
@@ -144,7 +169,7 @@ ngx-datatable * {
   position: relative;
 }
 ngx-datatable .datatable-header {
-  background: #FFED86;
+  background: #ffed86;
   font-size: 16px;
   font-weight: bold;
   text-align: left;
@@ -155,7 +180,7 @@ ngx-datatable .datatable-header-cell {
 }
 ngx-datatable .datatable-body-row {
   height: 48px;
-  border-bottom: 1px solid #E3F1D5;
+  border-bottom: 1px solid #e3f1d5;
 }
 ngx-datatable .datatable-body-row:last-child {
   border: 0;

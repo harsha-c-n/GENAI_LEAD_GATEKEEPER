@@ -20,6 +20,15 @@ ngx-datatable .datatable-header {
     color: #ffffff; /* White text for better contrast */
     text-align: left;
     height: 60px; /* Consistent header height */
+    position: sticky; /* Fix header position */
+    top: 0; /* Ensure it stays at the top */
+    /* Keep header above body content */
+}
+ngx-datatable .datatable-body {
+    max-height: 374px; /* Total height minus header/footer height (400px - 60px header - optional footer height) */
+    overflow-y: auto; /* Enable scrolling for body */
+    scrollbar-width: none; /* Hide scrollbar for Firefox */
+    -ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
 }
 ngx-datatable .datatable-header-cell {
     padding: 12px; /* Increased padding for better readability */
@@ -30,7 +39,7 @@ ngx-datatable .datatable-header-cell {
 }
 /* Body Row Styling */
 ngx-datatable .datatable-body-row {
-    height: 48px;
+    /* height: 48px; */
     background: #ffffff; /* Default row background */
     border-bottom: 1px solid #e3f1d5; /* Light separator for rows */
 }
@@ -72,8 +81,10 @@ ngx-datatable .datatable-footer {
 }
 /* Scrollbar Styles */
 ngx-datatable .datatable-scroll {
-    overflow-y: auto;
     max-height: 400px; /* Adjust as needed for vertical scrolling */
+}
+ngx-datatable{
+    max-height: 434px;
 }
 /* Responsive Design */
 @media screen and (max-width: 600px) {

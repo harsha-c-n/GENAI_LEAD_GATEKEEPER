@@ -1,14 +1,14 @@
 .chat-container {
-  width: 400px;
+  width: 280px;
   border: 1px solid #ddd;
   padding: 15px;
   background-color: #f9f9f9;
   border-radius: 15px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  margin: 100px auto;
+  margin: 100px 0px;
   display: flex;
   flex-direction: column;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .messages {
@@ -33,9 +33,47 @@
   word-wrap: break-word;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+/* Styling for the pulsating dots */
+.loading-indicator {
+  align-self: center;
+  font-size: 24px;
+  color: #000000;
+  display: flex;
+  gap: 5px; /* Space between dots */
+  justify-content: left;
+}
+
+.dot {
+  opacity: 0;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+.dot:nth-child(1) {
+  animation-delay: 0s; /* First dot */
+}
+
+.dot:nth-child(2) {
+  animation-delay: 0.3s; /* Second dot */
+}
+
+.dot:nth-child(3) {
+  animation-delay: 0.6s; /* Third dot */
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 
 .bot-message {
-  background: linear-gradient(to bottom right, #ec4899, #ef4444);
+  background: linear-gradient(to right, #d9ab16, #d98507);
   color: white;
   padding: 10px 15px;
   border-radius: 15px;
