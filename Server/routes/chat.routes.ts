@@ -21,7 +21,7 @@ ChatRoute.post('/', async (req, res) => {
      
       res.json({
         role: 'assistant',
-        content: response.leadInsights
+        content: response
       });
     } catch (error: unknown) {
       if (error instanceof Error) {
