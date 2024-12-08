@@ -12,7 +12,11 @@ class WebScraperService {
     'https://en.wikipedia.org/wiki/Pacific_International_Lines',
     'https://en.wikipedia.org/wiki/Wan_Hai_Lines',
     'https://en.wikipedia.org/wiki/Mediterranean_Shipping_Company',
-    'https://www.msc.com/en/newsroom/news'
+    'https://www.msc.com/en/newsroom/news',
+    'https://shippingwatch.com/latest',
+    'https://www.maritimeprofessional.com/',
+    'https://www.marinelink.com/'
+
   ];
 
   // Method to update sources
